@@ -5,10 +5,11 @@ import java.net.URL;
 import java.util.Map;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import model.Curency;
-import model.CurencyRates;
-public class CurencyRatesDownloader {
-    public BigDecimal downloadRate(Curency from, Curency walutaDocelowa) {
+
+import model.Currency;
+import model.CurrencyRates;
+public class CurrencyRatesDownloader {
+    public BigDecimal downloadRate(Currency from, Currency walutaDocelowa) {
         try {
             URL url = new URL("http://api.fixer.io/latest?base="+from+"&symbols="+walutaDocelowa);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -18,9 +19,9 @@ public class CurencyRatesDownloader {
             
             ObjectMapper objectMapper = new ObjectMapper();// stwozamy objek z pliku json
             objectMapper.findAndRegisterModules();// odczytuje wsztkie nowe bublioteki z poma
-            CurencyRates ratesFromJson = objectMapper.readValue(connection.getInputStream(), CurencyRates.class); // strumen
+            CurrencyRates ratesFromJson = objectMapper.readValue(connection.getInputStream(), CurrencyRates.class); // strumen
             
-            Map<Curency, BigDecimal> ratesMap = ratesFromJson.getRates();
+            Map<Currency, BigDecimal> ratesMap = ratesFromJson.getRates();
             return ratesMap.get(walutaDocelowa); // pobranie kursu dla waluty docelowej
             
         } catch (Exception e) {

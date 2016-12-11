@@ -2,29 +2,28 @@ package model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Map;
 
-public class CurencyRates {
+public class CurrencyRates {
 	
-	private Curency base;
+	private Currency base;
 	private LocalDate date;
-	private Map<Curency, BigDecimal> rates;
+	private Map<Currency, BigDecimal> rates;
 	
-	public CurencyRates() {
+	public CurrencyRates() {
 	}
 
-	public CurencyRates(Curency base, LocalDate date, Map<Curency, BigDecimal> rates) {
+	public CurrencyRates(Currency base, LocalDate date, Map<Currency, BigDecimal> rates) {
 		this.base = base;
 		this.date = date;
 		this.rates = rates;
 	}
 
-	public Curency getBase() {
+	public Currency getBase() {
 		return base;
 	}
 
-	public void setBase(Curency base) {
+	public void setBase(Currency base) {
 		this.base = base;
 	}
 
@@ -36,11 +35,11 @@ public class CurencyRates {
 		this.date = date;
 	}
 
-	public Map<Curency, BigDecimal> getRates() {
+	public Map<Currency, BigDecimal> getRates() {
 		return rates;
 	}
 
-	public void setRates(Map<Curency, BigDecimal> rates) {
+	public void setRates(Map<Currency, BigDecimal> rates) {
 		this.rates = rates;
 	}
 

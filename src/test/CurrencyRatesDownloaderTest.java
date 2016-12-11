@@ -8,22 +8,22 @@ import java.math.BigDecimal;
 import org.junit.Before;
 import org.junit.Test;
 
-import model.Curency;
-import service.CurencyRatesDownloader;
+import model.Currency;
+import service.CurrencyRatesDownloader;
 
-public class CurencyRatesDownloaderTest {
+public class CurrencyRatesDownloaderTest {
 
-	private CurencyRatesDownloader classUnderTest;
+	private CurrencyRatesDownloader classUnderTest;
 
 	@Before
 	public void setUp() {
 		System.out.println("Metoda zostanie wykonana przed kazdym testem");
-		classUnderTest = new CurencyRatesDownloader();
+		classUnderTest = new CurrencyRatesDownloader();
 	}
 
 	@Test
 	public void testDownload() throws Exception {
-		BigDecimal rate = classUnderTest.downloadRate(Curency.USD, Curency.PLN);
+		BigDecimal rate = classUnderTest.downloadRate(Currency.USD, Currency.PLN);
 		
 		assertNotNull(rate);
 		
